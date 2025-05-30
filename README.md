@@ -1,0 +1,2 @@
+# neotalon
+Simple Neovim Configuration
