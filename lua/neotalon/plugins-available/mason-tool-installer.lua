@@ -3,8 +3,6 @@
 
 return {
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
-	lazy = true,
-	event = "BufReadPost",
 	config = function()
 		run_config("mason-tool-installer")
 	end,
