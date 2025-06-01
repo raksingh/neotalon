@@ -4,7 +4,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
-	lazy = true,
 	event = { "BufReadPost", "BufNewFile" },
 	opts = function()
 		run_config("nvim-treesitter")

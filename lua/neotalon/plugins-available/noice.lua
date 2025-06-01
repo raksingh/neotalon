@@ -7,7 +7,6 @@ return {
 	{ "rcarriga/nvim-notify" },
 	{
 		"folke/noice.nvim",
-		lazy = true,
 		event = "VeryLazy",
 		opts = function()
 			run_config("noice")

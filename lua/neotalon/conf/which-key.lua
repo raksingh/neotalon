@@ -6,13 +6,8 @@ function M.setup()
 	wk.add({
 		{ "<leader>q", "<cmd>q<cr>", desc = "Quit" },
 		{ "<leader>Q", "<cmd>q!<cr>", desc = "Quit without saving" },
-		{ "<leader>w", "<cmd>w<cr>", desc = "Save" },
-		{ "<leader>W", "<cmd>wq<cr>", desc = "Save and Quit" },
-		{ "<leader>r", "<cmd>source $MYVIMRC<cr>", desc = "Reload Config" },
-		{ "<leader>R", "<cmd>source $MYVIMRC | PackerSync<cr>", desc = "Reload and Sync" },
-		{ "<leader>p", "<cmd>edit ~/.config/nvim/init.lua<cr>", desc = "Edit Config" },
-		{ "<leader>e", "<cmd>enew<cr>", desc = "Edit" },
 		{ "<leader>n", "<cmd>n<cr>", desc = "New" },
+		{ "<leader>w", "<cmd>w<cr>", desc = "Save" },
 		{ "<leader>H", "<cmd>checkhealth<cr>", desc = "Check Health" },
 		{ "<leader>h", "<cmd>help<cr>", desc = "Help" },
 		{ "<leader>l", "<cmd>Lazy<cr>", desc = "Lazy" },
@@ -34,6 +29,7 @@ function M.setup()
 		{ "<leader>b", group = "Buffer" },
 		{ "<leader>bn", "<cmd>enew<cr>", desc = "New Buffer" },
 		{ "<leader>bd", "<cmd>bd<cr>", desc = "Delete Buffer" },
+		{ "<leader>bD", "<cmd>bd!<cr>", desc = "Force Delete Buffer" },
 		{ "<leader>bl", "<cmd>ls<cr>", desc = "List Buffers" },
 		{ "<leader>bp", "<cmd>bprevious<cr>", desc = "Previous Buffer" },
 		{ "<leader>bn", "<cmd>bnext<cr>", desc = "Next Buffer" },
@@ -52,7 +48,7 @@ function M.setup()
 	-- Git Keymaps
 	wk.add({
 		{ "<leader>g", group = "Git" },
-		{ "<leader>gs", "<cmd>Git<cr>", desc = "Git Status (Fugitive)" },
+		{ "<leader>gs", "<cmd>Git status<cr>", desc = "Git Status (Fugitive)" },
 		{ "<leader>gc", "<cmd>Git commit<cr>", desc = "Git Commit (Fugitive)" },
 		{ "<leader>gp", "<cmd>Git push<cr>", desc = "Git Push (Fugitive)" },
 		{ "<leader>gl", "<cmd>Git pull<cr>", desc = "Git Pull (Fugitive)" },

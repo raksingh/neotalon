@@ -6,7 +6,6 @@ return {
 	{ "nvim-lua/plenary.nvim" },
 	{
 		"nvim-telescope/telescope.nvim",
-		lazy = true,
 		event = { "BufReadPost", "BufNewFile" },
 		opts = function()
 			run_config("telescope")

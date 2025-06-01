@@ -3,8 +3,7 @@ return {
 	{ "lewis6991/gitsigns.nvim" },
 	{
 		"rebelot/heirline.nvim",
-		event = "UIEnter",
-		lazy = true,
+		event = "VeryLazy",
 		opts = function()
 			run_config("heirline")
 		end,

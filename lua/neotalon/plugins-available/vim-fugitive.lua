@@ -4,7 +4,6 @@
 return {
 	"tpope/vim-fugitive",
 	name = "vim-fugitive",
-	lazy = true,
 	event = "BufReadPost",
 	config = function()
 		run_config("vim-fugitive")

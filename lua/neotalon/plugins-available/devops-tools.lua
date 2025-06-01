@@ -4,7 +4,6 @@
 
 return {
 	"azratul/devops-tools.nvim",
-	lazy = true,
 	event = "BufReadPost",
 	opts = {},
 	config = function()

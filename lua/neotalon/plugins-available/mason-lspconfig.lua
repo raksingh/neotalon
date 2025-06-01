@@ -6,8 +6,7 @@ return {
 	"mason-org/mason.nvim",
 	"mason-org/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig",
-	lazy = true,
-	event = "BufReadPost",
+	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		run_config("mason-lspconfig")
 	end,

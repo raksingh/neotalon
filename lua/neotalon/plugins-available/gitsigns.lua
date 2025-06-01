@@ -4,10 +4,9 @@
 
 return {
 	"lewis6991/gitsigns.nvim",
-	lazy = true,
-	event = { "BufReadPost", "LspAttach" },
+	event = { "BufReadPre" },
 	opts = {},
 	config = function()
-		run_config("git-signs")
+		run_config("gitsigns")
 	end,
 }

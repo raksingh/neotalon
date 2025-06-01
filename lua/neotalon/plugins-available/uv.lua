@@ -4,7 +4,6 @@
 
 return {
 	"benomahony/uv.nvim",
-	lazy = true,
 	event = "VeryLazy",
 	config = function()
 		require("uv").setup()

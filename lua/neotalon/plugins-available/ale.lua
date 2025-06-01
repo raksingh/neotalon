@@ -4,9 +4,7 @@
 
 return {
 	"dense-analysis/ale",
-	lazy = true,
 	event = { "BufReadPre", "BufNewFile" },
-
 	opts = function()
 		run_config("ale")
 	end,

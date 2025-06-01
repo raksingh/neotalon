@@ -4,7 +4,6 @@
 return {
 	"mrcjkb/rustaceanvim",
 	version = "^6",
-	lazy = true,
 	event = "BufReadPost",
 	opts = function()
 		run_config("rustaceanvim")

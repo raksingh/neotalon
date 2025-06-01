@@ -3,8 +3,7 @@
 
 return {
 	"mason-org/mason.nvim",
-	lazy = true,
-	event = "BufReadPost",
+	event = { "BufReadPre", "BufNewFile" },
 	opts = function()
 		run_config("mason")
 	end,

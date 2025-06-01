@@ -3,7 +3,6 @@
 
 return {
 	"folke/which-key.nvim",
-	lazy = true,
 	event = "VeryLazy",
 	opts = function()
 		run_config("which-key")

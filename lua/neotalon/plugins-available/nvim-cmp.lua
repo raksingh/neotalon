@@ -14,8 +14,7 @@ return {
 	{ "zbirenbaum/copilot-cmp" },
 	{
 		"hrsh7th/cmp-nvim-lua",
-		lazy = true,
-		event = { "InsertEnter", "LspAttach" },
+		lazy = false,
 		config = function()
 			run_config("nvim-cmp")
 		end,

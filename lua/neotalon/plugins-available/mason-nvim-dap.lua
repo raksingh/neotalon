@@ -5,8 +5,6 @@ return {
 	"williamboman/mason.nvim",
 	"mfussenegger/nvim-dap",
 	"jay-babu/mason-nvim-dap.nvim",
-	lazy = true,
-	event = "BufReadPost",
 	opts = function()
 		run_config("mason-nvim-dap")
 	end,

@@ -1,6 +1,5 @@
 return {
 	"MeanderingProgrammer/render-markdown.nvim",
-	lazy = true,
 	event = "LspAttach",
 	dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
 	---@module "render-markdown"
