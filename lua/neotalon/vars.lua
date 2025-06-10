@@ -22,6 +22,9 @@ LINE_NUMBERS = true
 -- Enable/Disable the mouse
 ENABLE_MOUSE = false
 
+-- Enable sign column and set width. Set to "no" to disable
+SIGN_COLUMN = "yes:2"
+
 -- Debug message output
 DEBUG = true
 
@@ -65,7 +68,7 @@ LANGUAGES = {
 		},
 		ale = {
 			enabled = true,
-			ale_mason_linters = { "clangd" },
+			ale_mason_linters = { "cpplint" },
 			ale_mason_fixers = { "clang-format" },
 			ale_ext_linters = {},
 			ale_ext_fixers = {},
@@ -304,17 +307,17 @@ LANGUAGES = {
 		},
 		lsp = {
 			enabled = true,
-			server = { "pyright", "ruff" },
+			server = { "pyright" },
 		},
 		ale = {
 			enabled = true,
-			ale_mason_linters = { "pylint", "mypy" },
+			ale_mason_linters = { "mypy"},
 			ale_mason_fixers = { "black", "isort", "autopep8" },
 			ale_ext_linters = {},
 			ale_ext_fixers = {},
 		},
 		debugger = {
-			enabled = false,
+			enabled = true,
 			name = { "python" },
 		},
 	},

@@ -103,3 +103,9 @@ vim.opt.cursorline = CURSOR_LINE
 vim.opt.relativenumber = RELATIVE_NUMBERS
 vim.opt.number = LINE_NUMBERS
 vim.opt.mouse = ENABLE_MOUSE and "a" or ""
+
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  float = { border = "rounded" },
+})
