@@ -214,14 +214,14 @@ LANGUAGES = {
 	},
 	json = {
 		parser = {
-			enabled = false,
+			enabled = true,
 		},
 		lsp = {
-			enabled = false,
+			enabled = true,
 			server = { "jsonls" },
 		},
 		ale = {
-			enabled = false,
+			enabled = true,
 			ale_mason_linters = { "jsonlint" },
 			ale_mason_fixers = { "jq" },
 			ale_ext_linters = {},
@@ -311,7 +311,7 @@ LANGUAGES = {
 		},
 		ale = {
 			enabled = true,
-			ale_mason_linters = { "mypy"},
+			ale_mason_linters = { "mypy" },
 			ale_mason_fixers = { "black", "isort", "autopep8" },
 			ale_ext_linters = {},
 			ale_ext_fixers = {},
