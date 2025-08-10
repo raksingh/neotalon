@@ -2,19 +2,19 @@
 -- https://github.com/hrsh7th/nvim-cmp
 
 return {
-	{ "neovim/nvim-lspconfig" },
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "hrsh7th/cmp-buffer" },
-	{ "hrsh7th/nvim-cmp" },
-	{ "hrsh7th/cmp-path" },
-	{ "hrsh7th/cmp-cmdline" },
-	{ "saadparwaiz1/cmp_luasnip" },
-	{ "L3MON4D3/LuaSnip" },
-	{ "rafamadriz/friendly-snippets" },
-	{ "zbirenbaum/copilot-cmp" },
+	{ "neovim/nvim-lspconfig", event = { "InsertEnter", "CmdlineEnter" } },
+	{ "hrsh7th/cmp-nvim-lsp", event = { "InsertEnter", "CmdlineEnter" } },
+	{ "hrsh7th/cmp-buffer", event = { "InsertEnter", "CmdlineEnter" } },
+	{ "hrsh7th/nvim-cmp", event = { "InsertEnter", "CmdlineEnter" } },
+	{ "hrsh7th/cmp-path", event = { "InsertEnter", "CmdlineEnter" } },
+	{ "hrsh7th/cmp-cmdline", event = { "InsertEnter", "CmdlineEnter" } },
+	{ "saadparwaiz1/cmp_luasnip", event = { "InsertEnter", "CmdlineEnter" } },
+	{ "L3MON4D3/LuaSnip", event = { "InsertEnter", "CmdlineEnter" } },
+	{ "rafamadriz/friendly-snippets", event = { "InsertEnter", "CmdlineEnter" } },
 	{
 		"hrsh7th/cmp-nvim-lua",
-		lazy = false,
+		event = { "InsertEnter", "CmdlineEnter" },
+		lazy = true,
 		config = function()
 			run_config("nvim-cmp")
 		end,

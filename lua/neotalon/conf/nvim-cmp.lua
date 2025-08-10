@@ -11,37 +11,40 @@ cmp.setup({
 		completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered(),
 		help = cmp.config.window.bordered(),
-
 	},
 	mapping = cmp.mapping.preset.insert({
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<A-.>"] = cmp.mapping.complete(),
 		["<A-,>"] = cmp.mapping.abort(),
-		["<CR>"] = cmp.mapping.confirm({ select = true }),
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			elseif require("luasnip").expand_or_jumpable() then
+				require("luasnip").expand_or_jump()
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+		["<S-Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			elseif require("luasnip").jumpable(-1) then
+				require("luasnip").jump(-1)
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
 	}),
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
-		{ name = "copilot" },
 	}, {
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "cmdline" },
 	}),
 })
-
--- To use git you need to install the plugin petertriho/cmp-git and uncomment lines below
--- Set configuration for specific filetype.
---[[ cmp.setup.filetype('gitcommit', {
-  sources = cmp.config.sources({
-    { name = 'git' },
-  }, {
-    { name = 'buffer' },
-  })
-})
-require("cmp_git").setup() ]]
---
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ "/", "?" }, {
@@ -62,10 +65,13 @@ cmp.setup.cmdline(":", {
 	matching = { disallow_symbol_nonprefix_matching = false },
 })
 
+lsp_list = get_lsp_servers() or {}
 for _, server in ipairs(lsp_list) do
-	if not table_contains(cmp_lsp_exclusion_list, server) then
-		require("lspconfig")[server].setup({
-			capabilities = capabilities,
-		})
-	end
+	require("lspconfig")[server].setup({
+		capabilities = capabilities,
+		root_dir = function(fname)
+			return vim.loop.cwd() or vim.fn.fnamemodify(fname, ":p:h")
+		end,
+		single_file_support = true,
+	})
 end

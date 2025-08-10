@@ -3,6 +3,7 @@
 
 return {
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
+	-- event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		run_config("mason-tool-installer")
 	end,

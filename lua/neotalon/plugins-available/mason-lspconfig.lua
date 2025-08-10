@@ -3,11 +3,14 @@
 -- https://github.com/mason-org/mason-lspconfig.nvim
 
 return {
-	"mason-org/mason.nvim",
 	"mason-org/mason-lspconfig.nvim",
-	"neovim/nvim-lspconfig",
+	dependencies = {
+		"mason-org/mason.nvim",
+		"neovim/nvim-lspconfig",
+	},
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		run_config("mason-lspconfig")
 	end,
 }
+

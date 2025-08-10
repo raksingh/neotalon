@@ -1,1 +1,2 @@
+-- NeoTalon Configuration
 require("neotalon")

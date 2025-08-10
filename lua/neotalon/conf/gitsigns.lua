@@ -6,8 +6,6 @@ function M.setup()
 		current_line_blame = true,
 	})
 	vim.opt.signcolumn = SIGN_COLUMN
-
 end
-
 
 return M

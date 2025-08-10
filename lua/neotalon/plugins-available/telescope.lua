@@ -4,6 +4,8 @@
 
 return {
 	{ "nvim-lua/plenary.nvim" },
+	{ "nvim-tree/nvim-web-devicons", opts = {} },
+	{ "echasnovski/mini.nvim", version = "*" },
 	{
 		"nvim-telescope/telescope.nvim",
 		event = { "BufReadPost", "BufNewFile" },
