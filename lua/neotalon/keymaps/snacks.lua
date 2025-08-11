@@ -56,4 +56,18 @@ wk.add({
 		end,
 		desc = "Options",
 	},
+	{
+		"<leader>st",
+		function()
+			Snacks.terminal.toggle()
+		end,
+		desc = "Terminal",
+	},
+	{
+		"<C-/>",
+		function()
+			Snacks.terminal.toggle()
+		end,
+		desc = "Toggle Terminal",
+	},
 })

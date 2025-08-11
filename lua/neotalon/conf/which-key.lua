@@ -21,7 +21,6 @@ function M.setup()
 			end,
 			desc = "Toggle Zen Mode",
 		},
-		{ "<C-/>", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal" },
 	})
 end
 
