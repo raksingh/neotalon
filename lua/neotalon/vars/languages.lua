@@ -75,7 +75,7 @@ local languages = {
 	},
 	python = {
 		lsp = { enabled = true, servers = { "pyright" } },
-		linter = { enabled = true, tools = { "mypy" } },
+		linter = { enabled = true, tools = { "ruff", "mypy" } },
 		formatter = { enabled = true, tools = { "black", "isort" } },
 	},
 	ruby = {
