@@ -2,7 +2,7 @@ local M = {}
 
 function M.setup()
 	require("toggleterm").setup({
-		open_mapping = TERM_TOGGLE_KEYMAP,
+		open_mapping = TERMTOGGLE_KEY,
 		on_open = function(term)
 			vim.cmd("startinsert!")
 			vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
