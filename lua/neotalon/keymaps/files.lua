@@ -81,7 +81,7 @@ wk.add({
 		"<leader>h1",
 		function()
 			harpoon:list():select(1)
-			vim.notify("Switched to File 1")
+			vim.notify("Switched to File 1: " .. vim.api.nvim_buf_get_name(0))
 		end,
 		desc = "File 1",
 	},
@@ -89,7 +89,7 @@ wk.add({
 		"<leader>h2",
 		function()
 			harpoon:list():select(2)
-			vim.notify("Switched to File 2")
+			vim.notify("Switched to File 2: " .. vim.api.nvim_buf_get_name(0))
 		end,
 		desc = "File 2",
 	},
@@ -97,7 +97,7 @@ wk.add({
 		"<leader>h3",
 		function()
 			harpoon:list():select(3)
-			vim.notify("Switched to File 3")
+			vim.notify("Switched to File 3: " .. vim.api.nvim_buf_get_name(0))
 		end,
 		desc = "File 3",
 	},
@@ -105,7 +105,7 @@ wk.add({
 		"<leader>h4",
 		function()
 			harpoon:list():select(4)
-			vim.notify("Switched to File 4")
+			vim.notify("Switched to File 4: " .. vim.api.nvim_buf_get_name(0))
 		end,
 		desc = "File 4",
 	},
@@ -113,7 +113,7 @@ wk.add({
 		"<leader>h5",
 		function()
 			harpoon:list():select(5)
-			vim.notify("Switched to File 5")
+			vim.notify("Switched to File 5: " .. vim.api.nvim_buf_get_name(0))
 		end,
 		desc = "File 5",
 	},
