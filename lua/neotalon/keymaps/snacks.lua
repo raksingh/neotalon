@@ -1,12 +1,22 @@
--- Only add if neogit is available
-if not pcall(require, "snacks") then
-	return
-end
-
 local wk = require("which-key")
+
 wk.add({
 	-- Add a label for g keymaps related to git
 	{ "<leader>s", name = "Snacks" },
+	{
+		"<leader>sb",
+		function()
+			Snacks.picker.buffers()
+		end,
+		desc = "Buffers",
+	},
+	{
+		"<leader>se",
+		function()
+			Snacks.picker.explorer()
+		end,
+		desc = "Explore Files",
+	},
 	{
 		"<leader>sf",
 		function()
@@ -22,25 +32,11 @@ wk.add({
 		desc = "Grep Files",
 	},
 	{
-		"<leader>se",
+		"<leader>st",
 		function()
-			Snacks.picker.explorer()
+			Snacks.terminal.toggle()
 		end,
-		desc = "Explore Files",
-	},
-	{
-		"<leader>sb",
-		function()
-			Snacks.picker.buffers()
-		end,
-		desc = "Buffers",
-	},
-	{
-		"<leader>s:",
-		function()
-			Snacks.picker.commands()
-		end,
-		desc = "Commands",
+		desc = "Terminal",
 	},
 	{
 		"<leader>sH",
@@ -50,18 +46,11 @@ wk.add({
 		desc = "Help Tags",
 	},
 	{
-		"<leader>sO",
+		"<leader>s:",
 		function()
-			Snacks.picker.options()
+			Snacks.picker.commands()
 		end,
-		desc = "Options",
-	},
-	{
-		"<leader>st",
-		function()
-			Snacks.terminal.toggle()
-		end,
-		desc = "Terminal",
+		desc = "Commands",
 	},
 	{
 		"<C-/>",

@@ -33,8 +33,17 @@ _G.run_config = function(filename)
 			vim.notify("Error loading configuration for '" .. filename .. "': " .. conf, vim.log.levels.ERROR)
 		end
 	end
+	set_keymap(filename)
 end
 
+-- Sets the keymaps using the which-key definitions in the keymaps directory
+_G.set_keymap = function(filename)
+	local keymap_file = "neotalon.keymaps." .. filename
+	local keymap_path = vim.fn.stdpath("config") .. "/lua/" .. keymap_file:gsub("%.", "/") .. ".lua"
+	if file_exists(keymap_path) then
+		require(keymap_file)
+	end
+end
 -- Combine multiple lists into one
 function merge_lists(...)
 	local merged = {}
@@ -147,4 +156,3 @@ function get_all_languages()
 	end
 	return lang_list
 end
-

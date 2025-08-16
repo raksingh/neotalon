@@ -1,0 +1,1 @@
+../plugins-available/neovim-project.lua

@@ -10,6 +10,9 @@ function M.setup()
 		on_close = function(term)
 			vim.cmd("startinsert!")
 		end,
+		on_create = function(term)
+			vim.cmd("startinsert!")
+		end,
 		size = 20,
 		hide_numbers = true,
 		shade_filetypes = {},
