@@ -39,6 +39,13 @@ wk.add({
 		desc = "Terminal",
 	},
 	{
+		"<leader>sz",
+		function()
+			Snacks.zen()
+		end,
+		desc = "Zen Mode Toggle",
+	},
+	{
 		"<leader>sH",
 		function()
 			Snacks.picker.help_tags()
