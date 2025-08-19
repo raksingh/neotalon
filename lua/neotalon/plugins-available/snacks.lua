@@ -9,6 +9,7 @@ return {
 	"folke/snacks.nvim",
 	priority = 1000,
 	lazy = false,
+	dependencies = { "echasnovski/mini.nvim" },
 	---@type snacks.Config
 	opts = SNACK_PLUGINS or {
 		dasboard = { enabled = false },
