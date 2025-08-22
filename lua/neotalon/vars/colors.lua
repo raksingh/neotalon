@@ -5,5 +5,5 @@
 -- "latte", "frappe", "macchiato", "mocha"
 COLORSCHEME = "tokyonight"
 COLORSCHEME_VARIANT = "night"
-FALLBACK_COLORSCHEME = "unokai"
+FALLBACK_COLORSCHEME = "vim"
 TRANSPARENT = true
