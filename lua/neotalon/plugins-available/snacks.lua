@@ -14,7 +14,4 @@ return {
 	opts = SNACK_PLUGINS or {
 		dasboard = { enabled = false },
 	},
-	config = function()
-		run_config("snacks")
-	end,
 }
