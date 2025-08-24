@@ -6,7 +6,6 @@ return {
 		"lewis6991/gitsigns.nvim",
 		"nvim-tree/nvim-web-devicons",
 	},
-	lazy = true,
 	event = { "BufReadPre", "BufNewFile" },
 	opts = function()
 		run_config("barbar")

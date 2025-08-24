@@ -6,7 +6,7 @@ return {
 	{ "mfussenegger/nvim-dap", event = { "BufReadPre", "BufNewFile" } },
 	{
 		"jay-babu/mason-nvim-dap.nvim",
-		event = { "BufReadPre", "BufNewFile" },
+		event = { "BufReadPre", "BufNewFile", "VeryLazy"},
 		dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
 	},
 	opts = function()

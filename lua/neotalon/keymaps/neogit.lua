@@ -1,4 +1,5 @@
 local wk = require("which-key")
+local Neogit = require("neogit")
 
 wk.add({
 	{ "<leader>g", name = "Git" },

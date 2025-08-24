@@ -13,8 +13,7 @@ return {
 	{ "rafamadriz/friendly-snippets", event = { "InsertEnter", "CmdlineEnter" } },
 	{
 		"hrsh7th/cmp-nvim-lua",
-		event = { "InsertEnter", "CmdlineEnter" },
-		lazy = true,
+		lazy = false,
 		config = function()
 			run_config("nvim-cmp")
 		end,

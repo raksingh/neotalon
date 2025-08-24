@@ -1,4 +1,5 @@
 local wk = require("which-key")
+local Telescope = require("telescope")
 
 wk.add({
 	{ "<leader>t", name = "Telescope" },

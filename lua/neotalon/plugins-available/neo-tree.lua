@@ -3,15 +3,18 @@
 -- https://github.com/nvim-neo-tree/neo-tree.nvim
 
 return {
-	{ "nvim-lua/plenary.nvim" },
-	{ "nvim-tree/nvim-web-devicons" },
-	{ "MunifTanjim/nui.nvim" },
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
 		lazy = false,
-		event = "VeryLazy",
-		opts = function()
+		dependencies = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-tree/nvim-web-devicons" }, -- not strictly required, but recommended
+			{ "MunifTanjim/nui.nvim" },
+			{ "folke/snacks.nvim" },
+		},
+		opts = {},
+		config = function()
 			run_config("neo-tree")
 		end,
 	},

@@ -8,7 +8,7 @@ return {
 	{ "echasnovski/mini.nvim", version = "*" },
 	{
 		"nvim-telescope/telescope.nvim",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "BufReadPost", "BufNewFile", "VeryLazy" },
 		opts = function()
 			run_config("telescope")
 		end,

@@ -1,4 +1,6 @@
 local wk = require("which-key")
+local harpoon = require("harpoon")
+
 
 wk.add({
 	{ "<leader>h", name = "Harpoon" },

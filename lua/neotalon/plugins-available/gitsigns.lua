@@ -4,7 +4,7 @@
 
 return {
 	"lewis6991/gitsigns.nvim",
-	event = { "BufReadPre" },
+	event = { "BufReadPre", "BufNewFile", "BufWritePost" },
 	opts = {},
 	config = function()
 		run_config("gitsigns")

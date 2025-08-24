@@ -16,6 +16,36 @@ function M.setup()
 				never_show_by_pattern = { ".git", ".hg", ".svn" },
 			},
 		},
+		default_component_configs = {
+			indent = {
+				padding = 0,
+				with_expanders = true,
+				expander_collapsed = "",
+				expander_expanded = "",
+				expander_highlight = "NeoTreeExpander",
+			},
+			icon = {
+				folder_closed = "",
+				folder_open = "",
+				folder_empty = "ﰊ",
+				default = "*",
+				highlight = "NeoTreeFileIcon",
+			},
+			modified = {
+				symbol = "[+]",
+				highlight = "NeoTreeModified",
+			},
+			name = {
+				trailing_slash = false,
+				use_git_status_colors = true,
+				highlight_modified = true,
+				highlight = "NeoTreeFileName",
+			},
+			git_status = {
+				symbols = {
+				},
+			},
+		},
 	})
 end
 

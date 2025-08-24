@@ -3,6 +3,7 @@
 
 return {
 	"stevearc/conform.nvim",
+	lazy = false,
 	opts = {},
 	config = function()
 		run_config("conform")

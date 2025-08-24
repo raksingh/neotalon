@@ -8,5 +8,9 @@ return {
 		"sindrets/diffview.nvim",
 		"folke/snacks.nvim",
 	},
+	event = "VeryLazy",
+	config = function()
+		run_config("neogit")
+	end,
 }
 
