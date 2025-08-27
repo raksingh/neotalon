@@ -4,7 +4,6 @@ cmp.setup({
 	snippet = {
 		expand = function(args)
 			require("luasnip").lsp_expand(args.body)
-			vim.snippet.expand(args.body)
 		end,
 	},
 	window = {
@@ -65,13 +64,3 @@ cmp.setup.cmdline(":", {
 	matching = { disallow_symbol_nonprefix_matching = false },
 })
 
-lsp_list = get_lsp_servers() or {}
-for _, server in ipairs(lsp_list) do
-	require("lspconfig")[server].setup({
-		capabilities = capabilities,
-		root_dir = function(fname)
-			return vim.loop.cwd() or vim.fn.fnamemodify(fname, ":p:h")
-		end,
-		single_file_support = true,
-	})
-end

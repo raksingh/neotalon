@@ -3,12 +3,9 @@
 
 return {
 	"mfussenegger/nvim-lint",
-	event = { "BufReadPre", "BufNewFile", "InsertEnter" },
+    event = { "BufReadPre", "BufNewFile", "InsertEnter" },
 	config = function()
 		run_config("nvim-lint")
 	end,
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-	},
 }
 

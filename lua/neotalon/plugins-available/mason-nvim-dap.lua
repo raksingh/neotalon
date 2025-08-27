@@ -2,13 +2,10 @@
 -- https://github.com/jay-babu/mason-nvim-dap.nvim
 
 return {
-	{ "williamboman/mason.nvim", event = { "BufReadPre", "BufNewFile" } },
-	{ "mfussenegger/nvim-dap", event = { "BufReadPre", "BufNewFile" } },
-	{
-		"jay-babu/mason-nvim-dap.nvim",
-		event = { "BufReadPre", "BufNewFile", "VeryLazy"},
-		dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
-	},
+	"jay-babu/mason-nvim-dap.nvim",
+	event = { "BufReadPre", "BufNewFile"},
+	dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap", "WhoIsSethDaniel/mason-tool-installer" },
+	after = { "mason", "mason-tool-installer" },
 	opts = function()
 		run_config("mason-nvim-dap")
 	end,

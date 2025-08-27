@@ -3,6 +3,11 @@
 
 return {
 	"stevearc/conform.nvim",
+	dependencies = {
+		"mason-org/mason.nvim",
+		"WhoIsSethDaniel/mason-tool-installer",
+	},
+	after = { "mason-tool-installer" },
 	lazy = false,
 	opts = {},
 	config = function()

@@ -43,6 +43,7 @@ function M.setup()
 			},
 			git_status = {
 				symbols = {
+
 				},
 			},
 		},

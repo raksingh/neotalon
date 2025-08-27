@@ -1,6 +1,6 @@
 -- Commonly used functions in Neotalon
 
-local languages = require("neotalon.vars.languages")
+_G.languages = require("neotalon.vars.languages")
 
 -- Check if a file exists and returns true or false
 local function file_exists(name)
@@ -29,8 +29,6 @@ _G.run_config = function(filename)
 			if type(conf) == "table" and conf.setup then
 				conf.setup()
 			end
-		else
-			vim.notify("Error loading configuration for '" .. filename .. "': " .. conf, vim.log.levels.ERROR)
 		end
 	end
 	-- Also set any corresponding keymaps if available
@@ -75,8 +73,8 @@ function TableConcat(t1, t2)
 	end
 	return t1
 end
-
 _G.TableConcat = TableConcat
+
 -- Returns a list of LSP servers that are enabled
 function get_lsp_servers()
 	local lsp_list = {}
@@ -158,3 +156,115 @@ function get_all_languages()
 	end
 	return lang_list
 end
+
+
+-- Returns a list of debuggers that are enabled
+function get_debugger_tools()
+	local debugger_list = {}
+	for lang, config in pairs(languages) do
+		if config.debugger and config.debugger.enabled then
+			for _, tool in ipairs(config.debugger.tools) do
+				if not table_contains(debugger_list, tool) then
+					table.insert(debugger_list, tool)
+				end
+			end
+		end
+	end
+	return debugger_list
+end
+
+-- Returns a list of debuggers that are enabled for the given language
+function get_debuggers(language)
+	local debugger_list = {}
+	if not language then
+		language = vim.bo.filetype
+	end
+	if languages[language] and languages[language].debugger and languages[language].debugger.enabled then
+		if languages[language].debugger.mason_alias then
+			debugger_list = { languages[language].debugger.mason_alias }
+		else
+			debugger_list = languages[language].debugger.tools or {}
+		end
+	end
+	return debugger_list
+end
+
+-- Returns a list of formatters that are enabled for the given language
+function get_formatters(language)
+	local formatter_list = {}
+	if not language then
+		language = vim.bo.filetype
+	end
+	if languages[language] and languages[language].formatter and languages[language].formatter.enabled then
+		if languages[language].formatter.mason_alias then
+			formatter_list = { languages[language].formatter.mason_alias }
+		else
+			formatter_list = languages[language].formatter.tools or {}
+		end
+	end
+	return formatter_list
+end
+
+-- Returns a list of linters that are enabled for the given language
+function get_linters(language)
+	local linter_list = {}
+	if not language then
+		language = vim.bo.filetype
+	end
+	if languages[language] and languages[language].linter and languages[language].linter.enabled then
+		if languages[language].linter.mason_alias then
+			linter_list = { languages[language].linter.mason_alias }
+		else	
+			linter_list = languages[language].linter.tools or {}
+		end
+	end
+	return linter_list
+end
+
+-- Returns a list of LSP servers that are enabled for the given language
+function get_lsps(language)
+	local lsp_list = {}
+	if not language then
+		language = vim.bo.filetype
+	end
+	if languages[language] and languages[language].lsp and languages[language].lsp.enabled then
+		if languages[language].lsp.mason_alias then
+			lsp_list = { languages[language].lsp.mason_alias }
+		else
+			lsp_list = languages[language].lsp.servers or {}
+		end
+	end
+	return lsp_list
+end
+
+-- Returns a dictionary of formatters by filetype
+function get_lang_formatters()
+	local lang_formatters = {}
+	for lang, config in pairs(languages) do
+		if config.formatter and config.formatter.enabled then
+			if config.formatter.mason_alias then
+				lang_formatters[lang] = { config.formatter.mason_alias }
+			else
+				lang_formatters[lang] = config.formatter.tools or {}
+			end
+		end
+	end
+	return lang_formatters
+end
+
+
+function get_lang_linters()
+	local lang_linters = {}
+	for lang, config in pairs(languages) do
+		if config.linter and config.linter.enabled then
+			if config.linter.mason_alias then
+				lang_linters[lang] = { config.linter.mason_alias }
+			else
+				lang_linters[lang] = config.linter.tools or {}
+			end
+		end
+	end
+	return lang_linters
+end	
+
+

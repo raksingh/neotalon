@@ -7,8 +7,9 @@ return {
 	dependencies = {
 		"mason-org/mason.nvim",
 		"neovim/nvim-lspconfig",
+		"WhoIsSethDaniel/mason-tool-installer",
 	},
-	after = "mason.nvim",
+	after = { "mason-tool-installer" },
 	config = function()
 		run_config("mason-lspconfig")
 	end,

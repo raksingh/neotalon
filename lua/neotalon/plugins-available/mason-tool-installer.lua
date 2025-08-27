@@ -3,7 +3,8 @@
 
 return {
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
-	after = "mason.nvim",
+	dependencies = { "williamboman/mason.nvim" },
+	event = { "BufReadPost", "BufEnter" },
 	config = function()
 		run_config("mason-tool-installer")
 	end,

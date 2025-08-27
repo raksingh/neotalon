@@ -41,3 +41,29 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end,
 })
 
+
+-- Auto install mason tools based on filetype
+local ok, mti = pcall(require, "mason-tool-installer")
+if ok then
+  vim.api.nvim_create_autocmd("FileType", {
+    callback = function()
+      local file_type = vim.bo.filetype
+      local lsp_servers = get_lsps(file_type) or {}
+      local linters = get_linters(file_type) or {}
+      local formatters = get_formatters(file_type) or {}
+      local debuggers = get_debuggers(file_type) or {}
+      local tools_to_install = merge_lists(lsp_servers, linters, formatters, debuggers)
+      local registry = require("mason-registry")
+      if #tools_to_install > 0 then
+        for _, tool in ipairs(tools_to_install) do
+          if not registry.is_installed(tool) then
+            local pkg = registry.get_package(tool)
+            pkg:install()
+          end
+        end
+      end
+    end
+  })
+end
+
+
