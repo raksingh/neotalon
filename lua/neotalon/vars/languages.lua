@@ -52,13 +52,13 @@ local languages = {
         debugger = { enabled = false, tools = { "js-debug-adapter" } },
     },
     json = {
-        lsp = { enabled = true, servers = { "jsonls" } },
+        lsp = { enabled = true, servers = { "json-lsp" } },
         linter = { enabled = true, tools = { "jsonlint" } },
         formatter = { enabled = true, tools = { "prettier" } },
         debugger = { enabled = false, tools = {} },
     },
     lua = {
-        lsp = { enabled = true, servers = { "lua_ls" } },
+        lsp = { enabled = true, servers = { "lua-language-server" } },
         linter = { enabled = true, tools = {} },
         formatter = { enabled = true, tools = { "stylua" } },
         debugger = { enabled = false, tools = { } },
