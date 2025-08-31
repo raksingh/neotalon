@@ -1,8 +1,8 @@
 local wk = require("which-key")
 -- local Snacks = require("snacks")
 
+-- File Management
 wk.add({
-	-- Add a label for g keymaps related to git
 	{ "<leader>s", name = "Snacks" },
 	{
 		"<leader>sb",
@@ -58,14 +58,14 @@ wk.add({
 		function()
 			Snacks.bufdelete.all()
 		end,
-		desc = "Delete All Buffers (Ctrl-D)",
+		desc = "Delete All Buffers (Shift-Ctrl-D)",
 	},
 	{
 		"<leader>sH",
 		function()
-			Snacks.picker.help_tags()
+			Snacks.picker.help()
 		end,
-		desc = "Help Tags",
+		desc = "Help",
 	},
 	{
 		"<leader>s:",
@@ -74,16 +74,9 @@ wk.add({
 		end,
 		desc = "Commands",
 	},
-	{
-		"<C-/>",
-		function()
-			Snacks.terminal.toggle()
-		end,
-		desc = "Toggle Terminal",
-	},
 })
 
--- Alternative keymaps
+-- Alternative File Management Keymaps
 wk.add({
 	-- Add a label for g keymaps related to git
 	{
@@ -127,5 +120,23 @@ wk.add({
 			Snacks.bufdelete.all()
 		end,
 		desc = "Delete All Buffers",
+	},
+})
+
+-- Scratch Pad Keymaps
+wk.add({
+	{
+		"<leader>s.",
+		function()
+			Snacks.scratch()
+		end,
+		desc = "Toggle Scratch Buffer",
+	},
+	{
+		"<leader>sS",
+		function()
+			Snacks.scratch.select()
+		end,
+		desc = "Select Scratch Buffer",
 	},
 })

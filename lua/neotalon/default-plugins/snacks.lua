@@ -11,11 +11,7 @@ return {
 	lazy = false,
 	dependencies = { "echasnovski/mini.nvim" },
 	---@type snacks.Config
-	opts = SNACK_PLUGINS or {
-		dashboard = { enabled = true },
-	},
 	config = function(_, opts)
 		run_config("snacks")
 	end,
 }
-

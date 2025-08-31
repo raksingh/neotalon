@@ -2,7 +2,7 @@ local M = {}
 
 function M.setup()
 	require("toggleterm").setup({
-		open_mapping = TERMTOGGLE_KEY,
+		open_mapping = TOGGLETERM_KEY,
 		size = 20,
 		hide_numbers = true,
 		shade_filetypes = {},

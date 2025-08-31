@@ -26,44 +26,44 @@ if not status then
 	return
 end
 
--- Use Snacks Explorer as the default file manager
+-- Use Snacks Explorer as the default file manager and show dashboard
 vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    local args = vim.fn.argv()
-    if #args == 1 and vim.fn.isdirectory(args[1]) == 1 then
-      -- Open Snacks explorer picker when entering a directory
-      require("snacks.explorer").open()
-      -- Close the default Ex buffer/window if it is open
-      if vim.bo.filetype == "netrw" or vim.bo.filetype == "explorer" then
-        vim.cmd("bdelete!")  
-      end
-    end
-  end,
+	callback = function()
+		local args = vim.fn.argv()
+		if #args == 0 then
+			-- Show dashboard when no arguments are provided
+			require("snacks.dashboard").open()
+		elseif #args == 1 and vim.fn.isdirectory(args[1]) == 1 then
+			-- Open Snacks explorer picker when entering a directory
+			require("snacks.explorer").open()
+			-- Close the default Ex buffer/window if it is open
+			if vim.bo.filetype == "netrw" or vim.bo.filetype == "explorer" then
+				vim.cmd("bdelete!")
+			end
+		end
+	end,
 })
-
 
 -- Auto install mason tools based on filetype
 local ok, mti = pcall(require, "mason-tool-installer")
 if ok then
-  vim.api.nvim_create_autocmd("FileType", {
-    callback = function()
-      local file_type = vim.bo.filetype
-      local lsp_servers = get_lsps(file_type) or {}
-      local linters = get_linters(file_type) or {}
-      local formatters = get_formatters(file_type) or {}
-      local debuggers = get_debuggers(file_type) or {}
-      local tools_to_install = merge_lists(lsp_servers, linters, formatters, debuggers)
-      local registry = require("mason-registry")
-      if #tools_to_install > 0 then
-        for _, tool in ipairs(tools_to_install) do
-          if not registry.is_installed(tool) then
-            local pkg = registry.get_package(tool)
-            pkg:install()
-          end
-        end
-      end
-    end
-  })
+	vim.api.nvim_create_autocmd("FileType", {
+		callback = function()
+			local file_type = vim.bo.filetype
+			local lsp_servers = get_lsps(file_type) or {}
+			local linters = get_linters(file_type) or {}
+			local formatters = get_formatters(file_type) or {}
+			local debuggers = get_debuggers(file_type) or {}
+			local tools_to_install = merge_lists(lsp_servers, linters, formatters, debuggers)
+			local registry = require("mason-registry")
+			if #tools_to_install > 0 then
+				for _, tool in ipairs(tools_to_install) do
+					if not registry.is_installed(tool) then
+						local pkg = registry.get_package(tool)
+						pkg:install()
+					end
+				end
+			end
+		end,
+	})
 end
-
-

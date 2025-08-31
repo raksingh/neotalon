@@ -15,4 +15,4 @@ REMEMBER_CURSORPOS = true
 SIGNCOLUMN = "yes:3"
 WRAP = false
 SWAPFILE = true
-TOGGLETERM_KEY = "<C-_>"
+TOGGLETERM_KEY = "<C-\\>"

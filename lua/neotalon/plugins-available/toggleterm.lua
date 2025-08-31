@@ -5,7 +5,7 @@
 return {
 	"akinsho/toggleterm.nvim",
 	version = "*",
-	event = "VeryLazy",
+	event = "BufEnter",
 	opts = function()
 		run_config("toggleterm")
 	end,
