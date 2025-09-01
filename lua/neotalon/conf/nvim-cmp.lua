@@ -42,6 +42,7 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "cmdline" },
+		{ name = "codeium" },
 	}),
 })
 
@@ -63,4 +64,3 @@ cmp.setup.cmdline(":", {
 	}),
 	matching = { disallow_symbol_nonprefix_matching = false },
 })
-

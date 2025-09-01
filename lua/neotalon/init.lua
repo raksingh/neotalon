@@ -31,15 +31,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
 		local args = vim.fn.argv()
 		if #args == 0 then
-			-- Show dashboard when no arguments are provided
 			require("snacks.dashboard").open()
-		elseif #args == 1 and vim.fn.isdirectory(args[1]) == 1 then
-			-- Open Snacks explorer picker when entering a directory
-			require("snacks.explorer").open()
-			-- Close the default Ex buffer/window if it is open
-			if vim.bo.filetype == "netrw" or vim.bo.filetype == "explorer" then
-				vim.cmd("bdelete!")
-			end
 		end
 	end,
 })
