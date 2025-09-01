@@ -14,6 +14,7 @@ vim.opt.mouse = MOUSE or ""
 vim.opt.signcolumn = SIGNCOLUMN and "yes" or "no"
 vim.opt.wrap = WRAP or false
 vim.opt.swapfile = SWAPFILE or false
+vim.opt.clipboard = "unnamedplus"
 
 vim.diagnostic.config({
 	virtual_text = true,

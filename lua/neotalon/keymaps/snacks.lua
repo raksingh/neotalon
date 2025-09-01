@@ -140,3 +140,17 @@ wk.add({
 		desc = "Select Scratch Buffer",
 	},
 })
+
+-- Yanky Keymaps
+local has_yanky, _ = pcall(require, "yanky")
+if has_yanky then
+	wk.add({
+		{
+			"<leader>sy",
+			function()
+				Snacks.picker.yanky()
+			end,
+			desc = "Open Yank History",
+		},
+	})
+end
