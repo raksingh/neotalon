@@ -15,12 +15,9 @@ vim.opt.signcolumn = SIGNCOLUMN and "yes" or "no"
 vim.opt.wrap = WRAP or false
 vim.opt.swapfile = SWAPFILE or false
 vim.opt.clipboard = "unnamedplus"
-
-vim.diagnostic.config({
-	virtual_text = true,
-	signs = true,
-	float = { border = "rounded" },
-})
+vim.opt.foldmethod = FOLDMETHOD or "indent"
+vim.opt.foldenable = FOLDENABLE or false
+vim.opt.foldlevel = FOLDLEVEL or 99
 
 -- Remember cursor position
 if REMEMBER_CURSORPOS then

@@ -16,3 +16,6 @@ SIGNCOLUMN = "yes:3"
 WRAP = false
 SWAPFILE = true
 TOGGLETERM_KEY = "<C-\\>"
+FOLDMETHOD = "indent"
+FOLDENABLE = false
+FOLDLEVEL = 99
