@@ -26,16 +26,6 @@ if not status then
 	return
 end
 
--- Use Snacks Explorer as the default file manager and show dashboard
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		local args = vim.fn.argv()
-		if #args == 0 then
-			require("snacks.dashboard").open()
-		end
-	end,
-})
-
 -- Auto install mason tools based on filetype
 local ok, mti = pcall(require, "mason-tool-installer")
 if ok then
